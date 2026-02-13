@@ -86,9 +86,9 @@ function typeLine(){
   if(i < lines.length){
     terminal.innerHTML += lines[i] + "<br>";
     i++;
-    setTimeout(typeLine, 1000);
+    setTimeout(typeLine, 3000);
   } else {
-    setTimeout(showProposal, 2000);
+    setTimeout(showProposal, 3000);
   }
 }
 
@@ -123,5 +123,6 @@ noBtn.onmouseover = () => {
 
 </body>
 </html>
+
 
 
