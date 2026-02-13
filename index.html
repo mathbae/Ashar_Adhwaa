@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Valentine.exe</title>
+
+<style>
+body{
+  background:#0d1117;
+  color:#00ff9c;
+  font-family: "Courier New", monospace;
+  text-align:center;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+#terminal{
+  width:90%;
+  max-width:700px;
+  text-align:left;
+  font-size:18px;
+  line-height:28px;
+}
+
+button{
+  margin-top:30px;
+  padding:12px 26px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#yes{
+  background:#00ff9c;
+  color:black;
+}
+
+#no{
+  background:#ff4d6d;
+  color:white;
+  position:absolute;
+}
+
+.hidden{
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="terminal"></div>
+
+<div id="proposal" class="hidden" style="text-align:center;">
+  <h2 style="color:white;">Will you be my Valentine, Adhwa? ❤️</h2>
+  <button id="yes">YES 💕</button>
+  <button id="no">NO 😅</button>
+</div>
+
+<script>
+
+const lines = [
+"> initializing loveEngine...",
+"> importing Ashar ❤️ Adhwa",
+"> checking compatibility...",
+"> 100% match found ✔",
+"> loading memories...",
+"> rooftop new year party...",
+"> poems written...",
+"> smiles detected...",
+"> compiling feelings...",
+"> build success!",
+"> launching proposal.exe ..."
+];
+
+const terminal = document.getElementById("terminal");
+
+let i = 0;
+
+function typeLine(){
+  if(i < lines.length){
+    terminal.innerHTML += lines[i] + "<br>";
+    i++;
+    setTimeout(typeLine, 500);
+  } else {
+    setTimeout(showProposal, 1200);
+  }
+}
+
+function showProposal(){
+  terminal.style.display = "none";
+  document.getElementById("proposal").classList.remove("hidden");
+}
+
+typeLine();
+
+
+// YES button
+document.getElementById("yes").onclick = () => {
+  document.body.innerHTML = `
+    <h1 style="color:#ff4d6d; font-family:sans-serif;">
+      She said YES! ❤️<br><br>
+      Best decision of my life.
+    </h1>
+  `;
+};
+
+// NO button runs away
+const noBtn = document.getElementById("no");
+noBtn.onmouseover = () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+};
+
+</script>
+
+</body>
+</html>
